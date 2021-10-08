@@ -21,6 +21,8 @@ import arcinfo
 import arcpy
 import arcgis
 import arcgisscripting
+import requests
+from io import BytesIO
 
 def writeCoordinates():
     y_coord = entry1.get()
@@ -261,7 +263,8 @@ question4.pack()
 drop4 = tk.OptionMenu(root1,clicked4, "Category 1", "Category 2", "Category 3", "Category 4", "Category 5")
 drop4.pack()
 
-img11 = Image.open(r"C:\Users\giova\Dropbox\Research\Graduate School\windscale.png")
+response = requests.get('https://github.com/gfusco19/VR_V1/blob/main/windscale.png?raw=true')
+img11 = Image.open(BytesIO(response.content))
 img11 = img11.resize((400, 300))
 tkimage11 = ImageTk.PhotoImage(img11)
 tk.Label(root1, image=tkimage11).pack()
@@ -305,7 +308,8 @@ question1.pack()
 drop1 = tk.OptionMenu(root8,clicked1,"Wood Frame", "Concrete Block")
 drop1.pack()
 
-img4 = Image.open(r"C:\Users\giova\Dropbox\Research\Graduate School\concreteblockVSwoodframe.PNG")
+response = requests.get('https://github.com/gfusco19/VR_V1/blob/main/concreteblockVSwoodframe.PNG?raw=true')
+img4 = Image.open(BytesIO(response.content))
 tkimage4 = ImageTk.PhotoImage(img4)
 tk.Label(root8, image=tkimage4).pack()
 
@@ -330,7 +334,8 @@ question2.pack()
 drop2 = tk.OptionMenu(root9,clicked2, "Asphalt Shingles", "Metal Roofing", "Concrete Tiles", "Clay Tiles")
 drop2.pack()
 
-img5 = Image.open(r"C:\Users\giova\Dropbox\Research\Graduate School\RoofingOptions.PNG")
+response = requests.get('https://github.com/gfusco19/VR_V1/blob/main/RoofingOptions.PNG?raw=true')
+img5 = Image.open(BytesIO(response.content))
 tkimage5 = ImageTk.PhotoImage(img5)
 tk.Label(root9, image=tkimage5).pack()
 
@@ -355,7 +360,8 @@ question3.pack()
 drop3 = tk.OptionMenu(root10,clicked3, "Hurricane Straps", "Toe Nailing")
 drop3.pack()
 
-img9 = Image.open(r"C:\Users\giova\Dropbox\Research\Graduate School\ConnectionOptions.PNG")
+response = requests.get('https://github.com/gfusco19/VR_V1/blob/main/ConnectionOptions.PNG?raw=true')
+img9 = Image.open(BytesIO(response.content))
 tkimage9 = ImageTk.PhotoImage(img9)
 tk.Label(root10, image=tkimage9).pack()
 
@@ -378,7 +384,8 @@ question19.pack()
 drop19 = tk.OptionMenu(root11, clicked19, "Urban", "Suburban", "Rural")
 drop19.pack()
 
-img19 = Image.open(r"C:\Users\giova\Dropbox\Research\Graduate School\exposure.PNG")
+response = requests.get('https://github.com/gfusco19/VR_V1/blob/main/exposure.PNG?raw=true')
+img19 = Image.open(BytesIO(response.content))
 tkimage19 = ImageTk.PhotoImage(img19)
 tk.Label(root11, image=tkimage19).pack()
 
@@ -401,7 +408,8 @@ question20.pack()
 drop20 = tk.OptionMenu(root12, clicked20, "High", "Moderate", "Low", "Very Low")
 drop20.pack()
 
-img20 = Image.open(r"C:\Users\giova\Dropbox\Research\Graduate School\vegetationdensity.jpg")
+response = requests.get('https://github.com/gfusco19/VR_V1/blob/main/vegetationdensity.jpg?raw=true')
+img20 = Image.open(BytesIO(response.content))
 tkimage20 = ImageTk.PhotoImage(img20)
 tk.Label(root12, image=tkimage20).pack()
 
@@ -541,7 +549,7 @@ exit_button.pack(side=LEFT)
 
 root14.mainloop()
 
-
+arcpy.env.overwriteOutput = True
 mxd = arcpy.mapping.MapDocument(r"C:\Users\giova\Dropbox\Research\Graduate School\contours_map.mxd")
 
 mxd_H1 = arcpy.mapping.MapDocument(r"C:\Users\giova\Dropbox\Research\Graduate School\storm_surge_H1.mxd")
@@ -5654,7 +5662,8 @@ root5.geometry("400x400")
 question15 = tk.Label(root5, text = "Please find research assistant to set up virtual reality model.\n Press continue to move onto the reflection section \n after completing the simulation.")
 question15.pack()
 
-img = Image.open(r"C:\Users\giova\Dropbox\Research\Graduate School\wait.png")
+response = requests.get('https://github.com/gfusco19/VR_V1/blob/main/wait.png?raw=true')
+img = Image.open(BytesIO(response.content))
 img = img.resize((250, 250))
 tkimage = ImageTk.PhotoImage(img)
 tk.Label(root5, image=tkimage).pack()
